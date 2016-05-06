@@ -4,7 +4,7 @@ permalink: /ashsecurity/index.html
 title: ASHSECURITY
 tags: [ashsecurity]
 image:
-  feature: Hossain-Mohd-Faysal.jpg
+  feature: ASHSecurity.jpg
 ---
 
   <img src="{{ site.url }}/images/ASHSecurity.jpg" alt="ASHSECURITY">
