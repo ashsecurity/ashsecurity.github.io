@@ -4,10 +4,10 @@ title: ASHSECURITY
 tags: [ashsecurity]
 permalink: ashsecurity/index.html
 image:
-  feature: ASHSecurity.jpg
+  feature: ASHSecurity.png
 ---
 
-  <img src="{{ site.url }}/images/ASHSecurity.jpg" alt="ASHSECURITY">
+  <img src="{{ site.url }}/images/ASHSecurity.png" alt="ASHSECURITY">
 
 
 This blog is just for ramblings about infosec
