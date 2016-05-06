@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /hossain-mohd-faysal/index.html
+permalink: /ashsecurity/index.html
 title: ASHSECURITY
 tags: [ashsecurity]
 image:
