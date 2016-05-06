@@ -2,6 +2,7 @@
 layout: page
 title: ASHSECURITY
 tags: [ashsecurity]
+permalinks: ashsecurity/index.html
 image:
   feature: ASHSecurity.jpg
 ---
