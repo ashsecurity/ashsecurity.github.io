@@ -10,7 +10,7 @@ share:            true
 
 # Owner/author information
 owner:
-  name:           ashsecirity
+  name:           ashsecurity
   avatar:         hmfaysal.jpg
   email:          info@ashsecurity.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
