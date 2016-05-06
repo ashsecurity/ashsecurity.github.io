@@ -1,6 +1,5 @@
 ---
 layout: page
-permalink: /ashsecurity/index.html
 title: ASHSECURITY
 tags: [ashsecurity]
 image:
