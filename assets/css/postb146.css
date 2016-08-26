@@ -370,7 +370,7 @@ html, body, .summer-post-container, .summer-post-header {
   .summer-page-container .summer-page-menu-header {
     width: 100%;
     height: 5rem;
-    background-color: black;
+    background-color: #031936;
     color: white;
     position: relative;
     z-index: 9999; }
