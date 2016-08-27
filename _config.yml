@@ -24,8 +24,8 @@ owner:
   #google_plus:    
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   
-google_verify:      
+google_analytics:   UA-83258914-1   
+google_verify:      google-site-verification=WIdT_Ob6byPliwJWjucEhQZmT-vdi3qz-WAJxt-NDIE
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
 
