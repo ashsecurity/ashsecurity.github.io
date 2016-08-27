@@ -4,7 +4,13 @@
          <section>Based on <a class="icon-ghost" href="http://hmfaysal.github.io/Notepad/">Hossain Faysal's Notepad <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a> Theme</a></section>
     </div>
     <div class="social-icons">
-        
+  <!-- Experiment feed -->      
+        <a href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+                </a>
         {% if site.owner.twitter %}
         <a href="http://twitter.com/{{ site.owner.twitter }}">
             <span class="fa-stack fa-lg">
