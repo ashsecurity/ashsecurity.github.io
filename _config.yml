@@ -116,7 +116,7 @@ prose:
               value: personal
             - name: "Governance"
               value: governance
-            - name: "Misk-Management"
+            - name: "Risk-Management"
               value: riskmanagement
             - name: "ISMS"
               value: ISMS
