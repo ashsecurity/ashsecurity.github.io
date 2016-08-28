@@ -114,16 +114,18 @@ prose:
           options:
             - name: "Personal"
               value: personal
-            - name: "Engineering"
-              value: engineering
-            - name: "Physics"
-              value: physics
-            - name: "Psychology"
-              value: psychology
-            - name: "Interesting"
-              value: interesting
+            - name: "Governance"
+              value: governance
+            - name: "Misk-Management"
+              value: riskmanagement
+            - name: "ISMS"
+              value: ISMS
+            - name: "Standards"
+              value: Standards
             - name: "Web-Development"
               value: webdevelopment
+            - name: "ISO27001"
+              value: ISO27001
           alterable: true
       - name: "tags"
         field:

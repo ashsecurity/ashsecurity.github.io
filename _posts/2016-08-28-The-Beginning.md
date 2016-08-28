@@ -1,16 +1,15 @@
 ---
 layout: post
-title: The Beginning
+title: "The Beginning"
 description: "The first post"
 headline: "Idea"
 categories: personal
-tags: 
-  - blogging
-  - first post
+tags: blogging first-post
 comments: false
 mathjax: null
 featured: false
-published: false
+imagefeature: genesis.jpg
+published: true
 ---
 In the beginning there was an idea. It was not grand, unique or somewhat inspiring. Idea was to start blogging. I wanted to keep posting something to improve my English writing skills as well as improve grammar, at the same time, I wanted to keep records of what I have experienced so far or voice an opinion about topic I came across (_not that anyone cares_). 
 
