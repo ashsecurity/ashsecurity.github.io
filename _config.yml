@@ -12,11 +12,11 @@ share:            true
 owner:
   name:           ashsecurity
   avatar:         eyes.jpeg
-  email:          info@ashsecurity.com
+  email:          ash@ashsecurity.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    Infosec newbie, no I am not a hacker
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        ashsecurity
+  twitter:        ash_security
   #facebook:       
   #github:               
   #instagram:      
