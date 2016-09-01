@@ -1,7 +1,7 @@
 ---
 layout: page
 title: COOKIES POLICY
-permalink: /categories/cookiespolicy.html
+permalink: /policy/index.html
 tags: [Cookies]
 description: "A cookie and Google Analytics Policy"
 
