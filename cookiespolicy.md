@@ -35,5 +35,3 @@ If you want to opt-out, download and install the add-on for your web browser. Th
 ##### More Information
 
 Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren’t sure whether you need or not it’s usually safer to leave cookies enabled in case it does interact with one of the features you use on our site. 
-
-Email: info@ashsecurity.com
