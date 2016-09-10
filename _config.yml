@@ -117,13 +117,13 @@ prose:
             - name: "Governance"
               value: governance
             - name: "Risk-Management"
-              value: riskmanagement
+              value: Risk-Management
             - name: "ISMS"
               value: ISMS
             - name: "Standards"
               value: Standards
             - name: "Web-Development"
-              value: webdevelopment
+              value: Web-Development
             - name: "ISO27001"
               value: ISO27001
           alterable: true
