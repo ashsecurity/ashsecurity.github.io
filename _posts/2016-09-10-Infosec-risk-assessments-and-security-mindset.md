@@ -8,7 +8,7 @@ tags: Risk-Management
 comments: false
 mathjax: null
 featured: false
-imagefeature: "Droids.jpg"
+imagefeature: "DC.jpg"
 published: true
 ---
 One of the core activities of information security (infosec) governance is risk assessment. Unfortunately, it is often conducted as just another "compliance requirement" and is not expected to bring real value to organization. 
