@@ -3,8 +3,11 @@ layout: post
 title: "Information security risk assessments and security mindset"
 description: "How important is the security mindset in risk assessments"
 headline: "Security Mindset FTW"
-categories: Risk-Management, 2016
-tags: Risk-Management
+categories: 
+- Risk-Management 
+- 2016
+tags: 
+- Risk-Management
 comments: false
 mathjax: null
 featured: false
