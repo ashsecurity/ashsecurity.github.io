@@ -1,7 +1,5 @@
 ---
 layout: page
-title: ASHSECURITY
-tags: [ashsecurity]
 permalink: ashsecurity/index.html
 ---
 
