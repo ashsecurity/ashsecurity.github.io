@@ -3,13 +3,14 @@ layout: post
 title: "Information security risk assessments and security mindset"
 description: "How important is the security mindset in risk assessments"
 headline: "Security Mindset FTW"
-categories: riskmanagement
+categories: Risk-Management, 2016
 tags: Risk-Management
 comments: false
 mathjax: null
 featured: false
 imagefeature: "DC.jpg"
 published: true
+comments: true
 ---
 One of the core activities of information security (infosec) governance is risk assessment. Unfortunately, it is often conducted as just another "compliance requirement" and is not expected to bring real value to organization. 
 
