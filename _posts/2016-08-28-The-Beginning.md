@@ -5,7 +5,6 @@ description: "The first post"
 headline: "Idea"
 categories: 
 - personal 
-- 2016
 tags: first-post
 comments: false
 mathjax: null

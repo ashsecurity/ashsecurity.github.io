@@ -5,7 +5,6 @@ description: "How important is the security mindset in risk assessments"
 headline: "Security Mindset FTW"
 categories: 
 - Risk-Management 
-- 2016
 tags: 
 - Risk-Management
 comments: false
