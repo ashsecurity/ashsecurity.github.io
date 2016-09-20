@@ -8,7 +8,6 @@ categories:
 tags: 
 - Risk-Management
 comments: false
-mathjax: null
 featured: false
 imagefeature: "DC.jpg"
 published: true
