@@ -6,7 +6,7 @@ headline: "Infosec strategic objectives"
 categories: 
 - career 
 tags: "infosec management"
-comments: false
+comments: true
 featured: false
 imagefeature: thoughts.jpg
 published: true 
@@ -44,9 +44,9 @@ Finally the objective related to awareness program. It is not a secret that init
 
 Those that were interested in management know that objectives should be smart. **S**pecific, **M**easurable, **A**chievable, **R**elevant, **T**ime-bound, or [**SMART**](https://en.wikipedia.org/wiki/SMART_criteria).
 An example of smart objective, at least from my point of view, would be:
-* "Implement ISMS based on and certified against ISO/EIC 27001:2013 standard requirement by the end of December 20XX" 
-* "By mid October 20XX, upgrade SIEM solution's storage capability to store logs for 3 months available on demand and 1 year off-site as per log retention policy"
-* "Conduct trainer-led information security awareness sessions to cover at least 70% of employees located in HQ building in 20XX"
+*"Implement ISMS based on and certified against ISO/EIC 27001:2013 standard requirement by the end of December 20XX" 
+*"By mid October 20XX, upgrade SIEM solution's storage capability to store logs for 3 months available on demand and 1 year off-site as per log retention policy"
+*"Conduct trainer-led information security awareness sessions to cover at least 70% of employees located in HQ building in 20XX"
 
 As you can see I prefer to keep objectives formulated short. Every objective should has a brief description of what it will help to achieve, its benefits. I have also adopted the approach to map initiatives to objectives, so that my efforts have some level of granularity.
 
@@ -58,14 +58,14 @@ The template will look as follows:
 >
 > **Initiative 1** – Review, update and add a suite of information security policies, standards and guidelines. These documents will formally establish the company’s IT Security Program and set forth employee responsibility for information protection. The policy, standards and guideline framework will also take into consideration compliance to national and group regulations. 
 > Key Benefits:
-> * Policy based foundation to measure results
-> * Consistent application of security controls across the enterprise
+> *Policy based foundation to measure results
+> *Consistent application of security controls across the enterprise
 >
 >  **Initiative 2** - Develop and establish process to manage information assets in order to capture full picture of the company assets or ensure that they are classified in accordance with the classification policy. Implement automated solution to ensure assets inventory completeness.
 > Key Benefits 
-> * Identified and managed company assets. 
-> * Established proper classification levels for the assets
-> * Better understanding of the direction of the efforts to apply proper controls
+> *Identified and managed company assets. 
+> *Established proper classification levels for the assets
+> *Better understanding of the direction of the efforts to apply proper controls
 
 And so on.
 
