@@ -53,8 +53,8 @@ As you can see I prefer to keep objectives formulated short. Every objective sho
 
 The template will look as follows:
 
-**Objective #1 - Implement ISMS based on and certified against ISO/EIC 27001:2013 standard requirement by the end of December 20XX**
- 
+> **Objective #1 - Implement ISMS based on and certified against ISO/EIC 27001:2013 standard requirement by the end of December 20XX**
+> 
 > **Description:** Implement Information Security Management System, based on risk management and international standard ISO/IEC 27001:2013 by the end of year 20XX.
 >
 > **Initiative 1** – Review, update and add a suite of information security policies, standards and guidelines. These documents will formally establish the company’s IT Security Program and set forth employee responsibility for information protection. The policy, standards and guideline framework will also take into consideration compliance to national and group regulations. 
@@ -69,7 +69,8 @@ The template will look as follows:
 > <li>Identified and managed company assets.</li> 
 > <li>Established proper classification levels for the assets</li>
 > <li>Better understanding of the direction of the efforts to apply proper controls</li>
-> </ul>
+> </ul> 
+
 And so on.
 
 Well, that's about as short intro into planning and benefits of defining objectives as I can write. We went over importance of planning, some areas of effort concentration you may consider, examples and template of objective. I do hope it will help you in your operations. 
