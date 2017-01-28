@@ -74,3 +74,7 @@ The template will look as follows:
 And so on.
 
 Well, that's about as short intro into planning and benefits of defining objectives as I can write. We went over importance of planning, some areas of effort concentration you may consider, examples and template of objective. I do hope it will help you in your operations. 
+
+###### Mentions
+
+<small>Photo is by Sylvain B on Flickr </small>
