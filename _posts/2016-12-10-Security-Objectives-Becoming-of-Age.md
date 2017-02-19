@@ -4,8 +4,9 @@ title: "Information security objectives - Becoming of Age"
 description: "How to set up objectives"
 headline: "Infosec strategic objectives"
 categories: 
-- career 
-tags: "infosec management"
+- infosec management 
+- strategy
+tags: "infosec management strategy"
 comments: true
 featured: false
 imagefeature: thoughts.jpg

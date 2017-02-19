@@ -116,16 +116,20 @@ prose:
               value: personal
             - name: "Governance"
               value: governance
-            - name: "Risk-Management"
-              value: Risk-Management
+            - name: "Risk Management"
+              value: Risk Management
             - name: "ISMS"
               value: ISMS
             - name: "Standards"
               value: Standards
-            - name: "Web-Development"
+            - name: "Web Development"
               value: Web-Development
             - name: "ISO27001"
               value: ISO27001
+            - name: "Strategy"
+              value: strategy
+            - name: "Infosec Management"
+              value: Infosec Management 
           alterable: true
       - name: "tags"
         field:
