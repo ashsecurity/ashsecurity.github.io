@@ -32,7 +32,7 @@ Currently there are two major licensing approaches, total Gbs per day or total E
 * Count of sources
 * Forecast on increase of the sources' count
 
-You absolutely must know and collect as much information about log events and log sources in your environment as possible. One of the main challenges you will encounter after SIEM implementation is integration of different log sources and their later normalization. Remember that sometimes normalization is a challenge even for something as trivial as Windows logs. (Normalization is the process of bringing log fields from different sources to common event fields). That is why the more you know about your infrastructure and logs it sends the better. 
+You absolutely must know and collect as much information about log events and log sources in your environment as possible. One of the main challenges you will encounter after SIEM implementation is integration of different log sources and their later normalization. Remember that sometimes normalization is a challenge even for something as trivial as Windows logs. (Normalization is the process of bringing log fields from different sources to common event fields within your solution). That is why the more you know about your infrastructure and logs it sends the better. 
 
 When properly executed, this exercise will help you estimate number of days that will be required to plan the implementations. In general SIEM implementation is a long journey. You should plan at least 6 months project with about 200-250 mixed log sources. No matter what, do not try to cover all your sources within same project. It is better to implement it in phased approach. Your primary, most important and non-standard log sources should be implemented with the help of professional services, and standard and secondary sources can integrated by your team. It also helps your team to get more confidence and skills growth, so they will become more effective in the long run. 
 
@@ -46,8 +46,8 @@ Before committing to the purchase, you should have clear understanding of:
 * How easy it is to maintain, that is to say administer, each component of SIEM infrastructure.
 
 ### PoC thoughts
-Any PoC (Proof of Concept) for SIEM solution is very difficult to run. Generally because any SIEM implementation should be tailored to your environment and include various log sources. Once again I have to stress that process of logs integration and normalization is usually very painful and depends on the different logs' types you feed into the SIEM. Unfortunately you will fully understand challenges with logs' integration only after you will get familiar with the solution.Normalization is the process of mapping the different log sources to common event fields.  
-At the same time, no one likes buying without test driving. I would recommend asking integrator or distributor to provide access to demo stand. This will help you get more confidence in the capabilities of the integrator or distributor and get more familiar with the product. 
+Any PoC (Proof of Concept) for SIEM solution is very difficult to run. Generally because any SIEM implementation should be tailored to your environment and include various log sources. Once again I have to stress that process of logs integration and normalization is usually very painful and depends on the different logs' types you feed into the SIEM. Unfortunately you will fully understand challenges with logs' integration only after you will get familiar with the solution. 
+At the same time, no one likes buying without test driving. I would recommend asking integrator or distributor to provide access to demo stand built by them on their premises. This will help you get more confidence in the capabilities of the integrator or distributor and get more familiar with the product. The company that has invested time and effort to build SIEM demo stand is demonstrating commitment and skills of the product.
 
 ### Links
 
