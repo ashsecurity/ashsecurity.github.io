@@ -17,7 +17,6 @@ language: en
 
 ### Events that matter
 
-
 ### Rule authoring 
 
 
