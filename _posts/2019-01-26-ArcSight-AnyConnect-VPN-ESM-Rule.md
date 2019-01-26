@@ -96,9 +96,7 @@ First create a **VPN Events - ACS Successful Authentication** filter that would 
 Next create the **VPN Events - ACS Authentication Enrichment** pre-persistence rule that would enrich such events. It would match the filter created earlier. I also create the variable _User_ to create alias from _sourceUserName_ event field and finally assign action on every event to set event field _targetUserName_ with _$User_ variable.
 
 ![Rule ACS Authentication Filter](/images/Rule3Filter.PNG "Rule ACS Authentication Filter")
-
 ![Rule ACS Authentication local variable](/images/Rule3Variable1.PNG "Rule ACS Authentication local variable")
-
 ![Rule ACS Authentication Action](/images/Rule3Action1.PNG "Rule ACS Authentication Action")
 
 ###### Mentions
