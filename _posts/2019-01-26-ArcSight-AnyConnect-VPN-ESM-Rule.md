@@ -50,11 +50,20 @@ Next step will be creation of two [lightweight rules](https://community.software
 
 <center>
 
-ESM Event Field | Active List Field Name | Field Type | Key-Field
------------ | ----------------- | ---------- | ---------
-_deviceCustomString2_ | NAS Port | String | Y
-_sourceAddress | Source IP Address | IP Address | N
-_destinationUserName | User Name | String | N
+<table>
+    <tr>
+        <th>ESM Event Field </th> <th> Active List Field Name</th> <th>Field Type</th><th> Key-Field</th>
+    </tr>
+    <tr>
+        <td>deviceCustomString2</td> <td>NAS Port</td> <td>String</td><td>Y</td>
+    </tr>
+    <tr>
+        <td>sourceAddress</td> <td>Source IP Address</td> <td>IP Address</td><td>N</td>
+    </tr>
+    <tr>
+        <td>destinationUserName</td> <td>User Name</td> <td>String</td><td>N</td>
+    </tr>
+</table>
 
 </center>
 
