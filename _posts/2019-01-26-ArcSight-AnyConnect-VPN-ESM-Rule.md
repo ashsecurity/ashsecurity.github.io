@@ -76,11 +76,13 @@ Time To Live can be defined based on your needs, but it should be aligned with y
 The first rule **VPN Events - ASC Session Start** simply matches filter **VPN Events - ACS Session Start** and has action to write the above fields to the Active List **VPN Active Session**
 
 ![Rule Session Start](/images/Rule1Filter.PNG "Rule Session Start")
+
 ![Rule Session Start Action](/images/Rule1Action1.PNG "Rule Session Start Action") 
 
 The second rule **VPN Events - ASC Session Stop** obviously matches filter **VPN Events - ACS Session Stop** and has action to delete the above fields from the Active List **VPN Active Session**
 
 ![Rule Session Stop](/images/Rule2Filter.PNG "Rule Session Stop")
+
 ![Rule Session Stop Action](/images/Rule2Action1.PNG "Rule Session Stop Action") 
 
 The above creates the basis for us to proceed further with our pack. 
@@ -94,6 +96,7 @@ First create a **VPN Events - ACS Successful Authentication** filter that would 
 ![ACS Successful Authentication](/images/Filter4.PNG "ACS Successful authentication")
 
 Next create the **VPN Events - ACS Authentication Enrichment** pre-persistence rule that would enrich such events. It would match the filter created earlier. I also create the variable _User_ to create alias from _sourceUserName_ event field and finally assign action on every event to set event field _targetUserName_ with _$User_ variable.
+
 
 ![Rule ACS Authentication Filter](/images/Rule3Filter.PNG "Rule ACS Authentication Filter")
 ![Rule ACS Authentication local variable](/images/Rule3Variable1.PNG "Rule ACS Authentication local variable")
