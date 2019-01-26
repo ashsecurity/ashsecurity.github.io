@@ -49,11 +49,13 @@ Create another filter **VPN Events - ACS Session Stop** similar to the previous 
 Next step will be creation of two [lightweight rules](https://community.softwaregrp.com/t5/ArcSight-Tips-Information/Practical-Guide-to-ESM-Rules/ta-p/1644898). Those will update an active list to keep track of the active VPN sessions. We need 3 attributes from those session start events to be written to the **VPN Active Session** active list:
 
 <center>
+
 ESM Event Field | Active List Field Name | Field Type | Key-Field
 ----------- | ----------------- | ---------- | ---------
 _deviceCustomString2_ | NAS Port | String | Y
 _sourceAddress | Source IP Address | IP Address | N
 _destinationUserName | User Name | String | N
+
 </center>
 
 NAS Port is somewhat unique value, so it can be used as a key field.
