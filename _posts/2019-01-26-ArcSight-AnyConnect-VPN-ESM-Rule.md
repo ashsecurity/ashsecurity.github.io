@@ -2,12 +2,12 @@
 layout: post
 title: "ArcSight - AnyConnect VPN Correlation Rules Pack - Pt. 1"
 description: "VPN Correlation Rules Pack Part 1"
-headline: "Successful RDP connections are easy"
+headline: "Successful VPN tracking is easy"
 categories: 
 - SIEM
 - VPN Analytics
 - ArcSight ESM
-tags: "SIEM,ArcSight,ESM,VPN Correlation"
+tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
 imagefeature: teaching.jpg
