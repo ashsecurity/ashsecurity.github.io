@@ -271,7 +271,5 @@ Here is the overall graph view of all the components developed in these three pa
 
 ![Graph View](/images/VPN3ContentGraph.PNG "Content Graph View")
 
-{% image_tag src="/images/VPN3ContentGraph.PNG" width="100" %}
-
 
 

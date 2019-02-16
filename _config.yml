@@ -163,4 +163,3 @@ exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "l
 gems: 
   - jekyll-paginate
   - jemoji
-  - jekyll-srcset
