@@ -267,9 +267,9 @@ Again define report format (I suggest XLS) and email addresses.Yo need to create
 
 That is. The VPN monitoring content pack is done. That shold be enough to kickstart your VPN monitoring efforts and provide basis to work out further content. 
 
-Here is the overall graph view of all the components developed in these three parts. 
+Here is the overall graph view of all the components developed in these three parts.
 
-![Graph View](/images/VPN3ContentGraph.PNG "Content Graph View")
+[![](/images/VPN3ContentGraph.PNG)](/images/VPN3ContentGraph.PNG)
 
 
 
