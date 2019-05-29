@@ -16,7 +16,7 @@ language: en
 ---
 
 
-Today's threat landscape commands collecting the logs from all the user Windows endpoints. The cheapest way ATM is via the Windows Event Forwarding or WEF. In particular it is possible to improve threat hunting in your organization with the help of the [sysmon utility](https://blogs.technet.microsoft.com/motiba/2016/10/18/sysinternals-sysmon-unleashed/). 
+Today's threat landscape commands collecting logs from all the Windows endpoints. The cheapest way ATM is via the Windows Event Forwarding or WEF. In particular it is possible to improve threat hunting in your organization with the help of the [sysmon utility](https://blogs.technet.microsoft.com/motiba/2016/10/18/sysinternals-sysmon-unleashed/). 
 
 There are several great blog posts about using sysmon:
 
