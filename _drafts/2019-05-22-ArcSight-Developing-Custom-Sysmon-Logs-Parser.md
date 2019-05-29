@@ -16,7 +16,7 @@ language: en
 ---
 
 
-I hope that your orgs are collecting the logs from all the user Windows endpoints. The cheapest way ATM is via the Windows Event Forwarding or WEF. In particular it is possible to improve threat hunting with the help of the [sysmon utility](https://blogs.technet.microsoft.com/motiba/2016/10/18/sysinternals-sysmon-unleashed/). 
+Today's threat landscape commands collecting the logs from all the user Windows endpoints. The cheapest way ATM is via the Windows Event Forwarding or WEF. In particular it is possible to improve threat hunting in your organization with the help of the [sysmon utility](https://blogs.technet.microsoft.com/motiba/2016/10/18/sysinternals-sysmon-unleashed/). 
 
 There are several great blog posts about using sysmon:
 
@@ -27,41 +27,45 @@ There are several great blog posts about using sysmon:
 
 Making the whole Windows Event Forwarding infrastructure is a bit tricky, but our friends from NSA have got us [covered](https://apps.nsa.gov/iaarchive/library/reports/spotting-the-adversary-with-windows-event-log-monitoring.cfm) and so [did ArcSight](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/BestPractices/57/1/Micro_Focus_ArcSight_Collecting_Windows_Event_Logs.pdf) with their detailed write-ups.
 
-> **Note:** Make sure to read and understand the above configuration documents. I have suffered a lot because of minor mistakes during the whole integration process, that could be easily avoided with the help of thoughtful reading. 
+> **Note:** Make sure to read and understand the above WEF configuration guides. I have suffered a lot because of minor mistakes during the whole integration process, that could be easily avoided with the thoughtful reading. 
 
-Make sure to select proper sysmon-config that will work most for your environment. 
+Make sure to select or [build](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#configuration-files) proper sysmon configuration file that will work best for your environment. 
 
 After successful WEF implementation we should be getting endpoints' logs into our ArcSight ESM/Logger, but nothing is easy in SIEM world and especially with ArcSight. What I have noticed is that standard Windows Event Log - Native connector does not correctly parse sysmon events, and not only sysmon events. 
 
-This issues require correction and that is the main target of this blog post. 
+This issues require correction and that is the main target of this blog post - learn how to create custom parsers. 
 
 ### Sysmon events parser
 
 To correctly create the parser we need to:
 
-1. Enable *Preserve Raw Events* for the connector that processes WEF logs.
-2. Generate Sysmon events and ensure that we collect those raw events. 
+1. Enable *Preserve Raw Events* for the connector that processes logs, in our case WEF logs.
+2. Generate events and ensure that we collect those raw events, in our case Sysmon events. 
 
-Our custom parser will be placed in the $ARCSIGHT_HOME\user\agent\fcp\winc folder. $ARCSIGHT_HOME is the name of the folder where connector is installed including *current* folder. 
+Our custom parser will be placed in the $ARCSIGHT_HOME\user\agent\fcp\winc folder.
+
+> **Note:** $ARCSIGHT_HOME is the name of the folder where connector is installed including *current* folder. 
 
 Raw events should help us identify:
 * Channel name (for example Security, Application etc). In our case Microsoft Windows Sysmon Operational
-* Provider name. For sysmon it is Microsoft-Windows-Sysmon
-* Section names (for example EventData, UserData). In our case we will need to work on EventData
+* Provider name. For the Sysmon events it is Microsoft-Windows-Sysmon
+* Section names (for example EventData, UserData). In our case we will work with EventData
 
-Parser file should be name and placed in correct structure: 
+Parser file should be named and placed using correct structure: 
 
 `\{Normalized Channel}\{Normalized ProviderName}.sdkkeyvaluefilereader.properties`
 
-Now the Channel name will become the folder name under *winc* and Provider name along with SectionName will become name of the parser file.
+> **Note:** Normalized means that all capital letters become small and any characters that are not letters or digits become underscore character.
+
+The Channel name will become the folder name under *winc* and Provider name will be the name of the parser file.
 
 In our case the whole structure will become:
 
 `$ARCSIGHT_HOME\user\agent\fcp\winc\microsoft_windows_sysmon_operational\microsoft_windows_sysmon.sdkkeyvaluefilereader.properties`
 
-Now we shall proceed to actually create the parser file. 
+Now we shall proceed to actually creating the parser file. 
 
-The standard header for the log we will use as per connector manual will be:
+First we shall use standard header:
 
 ```
 key.delimiter=""
@@ -79,7 +83,9 @@ event.deviceVendor=__getVendor("Microsoft")
 event.deviceProduct=__stringConstant("Sysmon")
 ```
 
-I recommend creating some generic mappings that will always be placed in the same fields, despite event ID you are trying to parse and map. Sysmon provides timing in UTC format, so I prefer to map Sysmon event timing to the *deviceCustomDate1* field and timing of the file operations to the *fileCreateTime* and *oldFileCreateTime* fields. 
+I recommend creating some generic mappings that will always be mapped to the same ArcSight fields, independent of the event IDs you are trying to parse and map. 
+
+Sysmon provides timing in UTC format, so I prefer to map Sysmon event timing to the *deviceCustomDate1* field and timing related to the file operations to the *fileCreateTime* and *oldFileCreateTime* fields. 
 
 ```
 event.deviceCustomDate1=__parseMultipleTimeStamp(UtcTime,"dd/MM/yyyy HH\:mm\:ss.SSS","yyyy-MM-dd HH\:mm\:ss.SSS")
@@ -88,15 +94,18 @@ event.fileCreateTime=__parseMultipleTimeStamp(CreationUtcTime,"dd/MM/yyyy HH\:mm
 event.oldFileCreateTime=__parseMultipleTimeStamp(PreviousCreationUtcTime,"dd/MM/yyyy HH\:mm\:ss.SSS","yyyy-MM-dd HH\:mm\:ss.SSS")
 ```
 
-Next generic mappings will be done for file hashes, so that MD5 is mapped to the *fileHash* and SHA256 to the *oldFileHash* fields.
+Next generic mappings will be done for the file hashes, so that MD5 is mapped to the *fileHash* and SHA256 to the *oldFileHash* fields.
+
+> **Note:** Hashing algorithms are configured in the Sysmon config file. Below regex parsings are specific to the SHA 256 and MD5, so make sure to correct them in case you will decide to use other hashing algorithms. 
 
 ```
 event.fileHash=__regexToken(Hashes,"MD5=(\\S+)\\,")
 event.oldFileHash=__regexToken(Hashes,"SHA256=(\\S+)")
 ```
-Finally we proceed to start actual mapping of the data fields. For the EventData section of the logged event the fields are being processed automatically, so we do not need to create tokens in advance, therefore we can use field names that appear in the log directly. 
 
-In our case we will create mapping for the one event # 1. As a personal exercise, I would recommend taking it further and develop mappings for the rest of the events. 
+Finally we proceed to start actual mapping of the data fields. For the EventData section of the event the fields are being processed automatically, so we do not need to create special tokens and we can use field names that appear in the log directly. 
+
+In this blog post I will create mapping for the one event # 1. As a personal exercise, I would recommend you taking it further and develop mappings for the rest of the events. 
 
 ```
 conditionalmap.count=1
@@ -129,7 +138,6 @@ For the Sysmon event #1 the EventData section it looks like this:
         <Data Name="ParentImage">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</Data>
         <Data Name="ParentCommandLine">"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" </Data>
 </EventData>
-
 ```
 
 My mapping of this event looks like this:
@@ -161,7 +169,7 @@ conditionalmap[0].mappings[0].event.deviceCustomNumber1=TerminalSessionId
 conditionalmap[0].mappings[0].event.deviceCustomNumber1Label=__stringConstant("Terminal Session ID")
 ```
 
-You can see that mapping is somewhat straight forward except for the couple of the regex statements. In general **Data Name** valye from the log is used to map it to the specific field in the SIEM. 
+You can see that mapping is somewhat straight forward except for the couple of the regex statements. In general **Data Name** value from the log is used to map it to the specific field in the SIEM. 
 
 `conditionalmap[0].mappings[0].event.sourceUserName=__regexToken(User,"\\w+\\\\(\\S+)") ` takes the format `LAB\rsmith` from the `<Data Name="User">LAB\rsmith</Data>`, extracts a substring after the **\\** symbol to map the actual name *rsmith* to the *sourceUserName* field.
 
@@ -172,7 +180,7 @@ Other regex: `conditionalmap[0].mappings[0].event.fileName=__regexToken(Image,".
 
 Save the parser that we have created as the **microsoft_windows_sysmon.sdkkeyvaluefilereader.properties** file, place it to the required folder **$ARCSIGHT_HOME\user\agent\fcp\winc\microsoft_windows_sysmon_operational** and restart the connector for the changes to take effect. 
 
-In our case the full parser would look something like this
+The full parser looks something like this
 
 ```
 key.delimiter=&&
@@ -241,10 +249,9 @@ conditionalmap[0].mappings[0].event.deviceCustomNumber1Label=__stringConstant("T
 
 > **Note:** Make sure that you are properly planning the *deviceEventClassId*, because you will use it now to create categorizer.
 
-
 ### Categorization mapping
 
-ESM content heavily relies on categorization. Therefore, it is only natural to create custom categorizer for our custom parser. Categorizer map file should be placed in the **$ARCSIGHT_HOME\user\agent\acp\categorizer\current folder**. Create another folder there that matches deviceVendor field and place in this folder a **csv** file that matches deviceProduct field. Make sure that names of the folder and file are normalized, that is all capital letters become small and any characters that are not letters or digits become underscore character. In our case it will be
+ESM content heavily relies on categorization. Therefore, it is only natural to create custom categorizer for our custom parser. Categorizer map file should be placed in the **$ARCSIGHT_HOME\user\agent\acp\categorizer\current folder**. Create another folder there that matches deviceVendor field and place in this folder a **csv** file that matches deviceProduct field. Make sure that names of the folder and file are normalized. In our case it will be:
 
 `$ARCSIGHT_HOME\user\agent\aup\acp\categorizer\current\microsoft\sysmon.csv`
 
@@ -268,9 +275,9 @@ Save the file in the required directory and restart the connector.
 
 ### Some final words. 
 
-In this post we have went over just one event as an example. I challenge you to go over rest of the events and create a proper mapping for them in your parser and afterwards categorizer. 
+In this post we have went over just one event as an example. I challenge you to go over rest of the events and create proper mappings for them in your parser and categorizer. 
 
-I have got most valuable ideas for my parser and categorizer from [this content](https://marketplace.microfocus.com/arcsight/content/microsoft-sysmon-flexconnector).
+I got most valuable ideas for my parser and categorizer from [this content](https://marketplace.microfocus.com/arcsight/content/microsoft-sysmon-flexconnector).
 
 > **Note:** When mapping out Event #3 I have encountered an interesting bug where parsing data fields of the log and mapping them to specific ArcSight fields breaks the connector after certain number of lines.  However, using the same Data Fields to create *message* ArcSight Field goes without any problems. Weird bug, unfortunately I could not find any solution for that and support refused to help me out with it. 
 
