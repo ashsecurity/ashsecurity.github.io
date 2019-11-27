@@ -7,7 +7,7 @@ categories:
 - SIEM
 - Windows
 - Analytics
-tags: "SIEM,ArcSight"
+tags: "SIEM ArcSight"
 comments: true
 featured: false
 imagefeature: calculation.jpg
