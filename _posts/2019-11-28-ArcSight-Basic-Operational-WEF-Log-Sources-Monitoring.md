@@ -6,6 +6,7 @@ headline: "Basic Operational WEF Monitoring"
 categories: 
 - SIEM
 - Windows
+- ArcSight ESM
 - Operations
 - WEF
 tags: "SIEM ArcSight WEF Monitoring"
