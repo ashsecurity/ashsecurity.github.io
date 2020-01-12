@@ -201,7 +201,7 @@ External ID = 22
 
 ![RDP Connection Filter Conditions](/images/rdpmon/asRDPFilter1Conditions.PNG "RDP Connection Filter Conditions")
 
-Next we create the standard [rule]((https://community.softwaregrp.com/t5/ArcSight-Tips-Information/Practical-Guide-to-ESM-Rules/ta-p/1644898)) called **RDP Successful Connection**. Its condition simply matches the **Windows Events - RDP Successful Logon** filter we have created earlier. I have decided to set an alias to the Event conditions as **Logon** just for fun. 
+Next we create the standard [rule](https://community.softwaregrp.com/t5/ArcSight-Tips-Information/Practical-Guide-to-ESM-Rules/ta-p/1644898) called **RDP Successful Connection**. Its condition simply matches the **Windows Events - RDP Successful Logon** filter we have created earlier. I have decided to set an alias to the Event conditions as **Logon** just for fun. 
 
 ![RDP Connection Rule Conditions](/images/rdpmon/asRDPRule1Conditions.PNG "RDP Connection Rule Conditions")
 
