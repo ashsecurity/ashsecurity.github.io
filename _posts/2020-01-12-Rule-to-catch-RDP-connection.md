@@ -298,7 +298,7 @@ I did not do any dashboard, cause I could not find any useful dashboard that wou
 * [Nice post about Windows RDP-related events](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)<br>
 * [Detecting lateral movement through tracking event logs by JPCERT](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
 * [RDP Session disconnect reason codes](https://docs.microsoft.com/en-us/windows/desktop/TermServ/extendeddisconnectreasoncode)
-* [Github repository of the supplemting files](https://github.com/ashsecurity/ArcSight-RDP-Monitoring-Supporting-Files)
+* [Github repository of the supplementing files](https://github.com/ashsecurity/ArcSight-RDP-Monitoring-Supporting-Files)
 
 ###### Mentions
 <small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>
