@@ -148,6 +148,8 @@ conditionalmap[0].mappings[7].event.deviceCustomNumber1=__safeToLong(SessionID)
 conditionalmap[0].mappings[7].event.deviceCustomNumber1Label=__stringConstant("Remote Session ID")
 ```
 
+Links to the supplementing files can be found further down the post. 
+
 You can see from the parser content that I am processing the events 21-25 and 40-42.
 
 Once our parser is done, we need to create a custom categorizer as a good practice. As you may know categorizer files help connector to properly categorize events by adding additional meta-data when sending events to SIEM, essentially categorizer files are simple map files. 
@@ -296,6 +298,7 @@ I did not do any dashboard, cause I could not find any useful dashboard that wou
 * [Nice post about Windows RDP-related events](https://ponderthebits.com/2018/02/windows-rdp-related-event-logs-identification-tracking-and-investigation/)<br>
 * [Detecting lateral movement through tracking event logs by JPCERT](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
 * [RDP Session disconnect reason codes](https://docs.microsoft.com/en-us/windows/desktop/TermServ/extendeddisconnectreasoncode)
+* [Github repository of the supplemting files](https://github.com/ashsecurity/ArcSight-RDP-Monitoring-Supporting-Files)
 
 ###### Mentions
 <small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>
