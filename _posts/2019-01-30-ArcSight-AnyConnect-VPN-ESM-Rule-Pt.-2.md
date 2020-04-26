@@ -24,11 +24,11 @@ What I will try to do is correlate three events to record source public IP, inte
 
 Lets create filter **VPN Events - VPN AnyConnect parent session started** that would catch events with the _name_ = "AnyConnect parent session started" and match the filter **VPN Events - All VPN Event**.
 
-![VPN AnyConnect parent session started](/images/Filter1Pt2.PNG "AnyConnect parent session started")
+![VPN AnyConnect parent session started](/images/vpnmon/Filter1Pt2.PNG "AnyConnect parent session started")
 
 Another one will be **VPN Events - ACS Successful Authentication** and it would catch events with the _name_ = "Authentication succeeded" and _deviceAddress_ = IP Address of the ACS and match the filter **VPN Events - All VPN Event**.
 
-![ACS Successful Authentication](/images/Filter2Pt2.PNG "Successful Authentication")
+![ACS Successful Authentication](/images/vpnmon/Filter2Pt2.PNG "Successful Authentication")
 
 Inspect the events to understand how to correlate. 
 * "AnyConnect parent session started" event has _destinationUserName_ as the user name and _destinationAddress_ as the public IP address.
@@ -62,7 +62,7 @@ I set _Consume after match_ flag for all the events, because it prevents the rul
 Create Matching Event with matching time equal to 30 seconds where _ACSSession.Target User Name_ = _AnyConnect.Target User Name_ and _AnyConnect.Target User Name_ = _ACSAuth.Target User Name_.
 
 
-![AnyConnect Session Established](/images/Rule1Filter1Pt2.PNG "AnyConnect Session Established")
+![AnyConnect Session Established](/images/vpnmon/Rule1Filter1Pt2.PNG "AnyConnect Session Established")
 
 Next we will create four local variables that would alias event fields.
 
@@ -91,11 +91,11 @@ Next we will create four local variables that would alias event fields.
 
 </center>
 
-![AnyConnect Session Established Local Variables](/images/Rule1Variable1Pt2.PNG "AnyConnect Session Established Local Variables")
+![AnyConnect Session Established Local Variables](/images/vpnmon/Rule1Variable1Pt2.PNG "AnyConnect Session Established Local Variables")
 
 After variables creation we shall proceed to the aggregation and it should match 1 event per 30 seconds with identical fields _ACSSession.nasPort_, _ACSAuth.profileName_, _ACSSession.intAddress_, _ACSAuth.Target User Name_, AnyConnect.extAddress_
 
-![AnyConnect Session Established Aggregation](/images/Rule1AggregationPt2.PNG "AnyConnect Session Established Aggregation")
+![AnyConnect Session Established Aggregation](/images/vpnmon/Rule1AggregationPt2.PNG "AnyConnect Session Established Aggregation")
 
 Finally we need to assign some actions. I do it On Every Event and set the event fields as follows:
 

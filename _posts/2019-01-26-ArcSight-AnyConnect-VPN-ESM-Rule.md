@@ -29,7 +29,7 @@ I prefer to work with the filters because IMO they provide easier ways to contro
 
 Create a filter **VPN Events - All VPN Events** that would capture absolutely all the events from the connector and it is simple _agentId_ field value.
 
-![All VPN Events Configuration](/images/Filter1.PNG "VPN All Events Filter")
+![All VPN Events Configuration](/images/vpnmon/Filter1.PNG "VPN All Events Filter")
 
 Now since our session is being authenticated and verified by the ACS serving as RADIUS server we should know that according to [RFC2866](https://tools.ietf.org/html/rfc2866):
 >Each service provided by the NAS to a dial-in user constitutes a session, with the beginning of the session defined as the point where 
@@ -40,11 +40,11 @@ Now since our session is being authenticated and verified by the ACS serving as 
 Based on the explanation above we should look for the events that would indicate to us the beginning and the end of the sessions.
 Create a filter **VPN Events - ACS Session Start** that would capture event with the _name_ = "RADIUS Accounting start request" and matches the filter created for all the events sent to the connector and _deviceAddress_ = IP address of the ACS server.
 
-![ACS Session Start](/images/Filter2.PNG "ACS Session Start")
+![ACS Session Start](/images/vpnmon/Filter2.PNG "ACS Session Start")
 
 Create another filter **VPN Events - ACS Session Stop** similar to the previous one but capturing events with the _name_ = "RADIUS Accounting start request".
 
-![ACS Session Stop](/images/Filter3.PNG "ACS Session Stop")
+![ACS Session Stop](/images/vpnmon/Filter3.PNG "ACS Session Stop")
 
 Next step will be creation of two [lightweight rules](https://community.softwaregrp.com/t5/ArcSight-Tips-Information/Practical-Guide-to-ESM-Rules/ta-p/1644898). Those will update an active list to keep track of the active VPN sessions. We need 3 attributes from those session start events to be written to the **VPN Active Session** active list:
 
@@ -69,21 +69,21 @@ Next step will be creation of two [lightweight rules](https://community.software
 
 NAS Port is somewhat unique value, so it can be used as a key field.
 
-![Active VPN Session List](/images/ActiveList1.PNG "Active VPN Session List Settings")
+![Active VPN Session List](/images/vpnmon/ActiveList1.PNG "Active VPN Session List Settings")
 
 Time To Live can be defined based on your needs, but it should be aligned with your VPN connection length policy.
 
 The first rule **VPN Events - ASC Session Start** simply matches filter **VPN Events - ACS Session Start** and has action to write the above fields to the Active List **VPN Active Session**
 
-![Rule Session Start](/images/Rule1Filter.PNG "Rule Session Start")
+![Rule Session Start](/images/vpnmon/Rule1Filter.PNG "Rule Session Start")
 
-![Rule Session Start Action](/images/Rule1Action1.PNG "Rule Session Start Action") 
+![Rule Session Start Action](/images/vpnmon/Rule1Action1.PNG "Rule Session Start Action") 
 
 The second rule **VPN Events - ASC Session Stop** obviously matches filter **VPN Events - ACS Session Stop** and has action to delete the above fields from the Active List **VPN Active Session**
 
-![Rule Session Stop](/images/Rule2Filter.PNG "Rule Session Stop")
+![Rule Session Stop](/images/vpnmon/Rule2Filter.PNG "Rule Session Stop")
 
-![Rule Session Stop Action](/images/Rule2Action1.PNG "Rule Session Stop Action") 
+![Rule Session Stop Action](/images/vpnmon/Rule2Action1.PNG "Rule Session Stop Action") 
 
 The above creates the basis for us to proceed further with our pack. 
 
@@ -93,14 +93,14 @@ I have noticed that sometimes events from ACS would miss _destinationUserName_ f
 
 First create a **VPN Events - ACS Successful Authentication** filter that would catch ACS events with _name_= "Authentication succeeded".
 
-![ACS Successful Authentication](/images/Filter4.PNG "ACS Successful authentication")
+![ACS Successful Authentication](/images/vpnmon/Filter4.PNG "ACS Successful authentication")
 
 Next create the **VPN Events - ACS Authentication Enrichment** pre-persistence rule that would enrich such events. It would match the filter created earlier. I also create the variable _User_ to create alias from _sourceUserName_ event field and finally assign action on every event to set event field _targetUserName_ with _$User_ variable.
 
 
-![Rule ACS Authentication Filter](/images/Rule3Filter.PNG "Rule ACS Authentication Filter")
-![Rule ACS Authentication local variable](/images/Rule3Variable1.PNG "Rule ACS Authentication local variable")
-![Rule ACS Authentication Action](/images/Rule3Action1.PNG "Rule ACS Authentication Action")
+![Rule ACS Authentication Filter](/images/vpnmon/Rule3Filter.PNG "Rule ACS Authentication Filter")
+![Rule ACS Authentication local variable](/images/vpnmon/Rule3Variable1.PNG "Rule ACS Authentication local variable")
+![Rule ACS Authentication Action](/images/vpnmon/Rule3Action1.PNG "Rule ACS Authentication Action")
 
 ###### Mentions
 <small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>

@@ -23,13 +23,13 @@ Last two posts were all about admin events, like logged in admins, their activit
 
 We will start with creation of the filter *CheckPoint Firewall - Drop Events*. Its conditions are simple, take events from specific connector that serves firewall events to the connector, narrow is down to specific product VPN-1 & FireWall-1 and finally **name**=drop.
 
-![Filter 1 Conditions](/images/asFW3Filter1Filter.PNG "Filter 1 Conditions")
+![Filter 1 Conditions](/images/fwmon/asFW3Filter1Filter.PNG "Filter 1 Conditions")
 
 This filter will be the basis that serves events for our dashboards.
 
 The first dashboard will be *Top Drop Events by Target*. Lets create the data monitor *Checkpoint Events - Top Drop Events by Target*. [Data monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/Past-Protect-Event-Resources/102/1/SN06_Pearson.pdf) type is **Top Value Counts (Bucketized)**. It should be restricted by our recently created *CheckPoint Firewall - Drop Events* filter. *# top entries* equals 10. *Aggregate Field* is obviously set to *Target Address*. 
 
-![Data Monitor 1 Attributes](/images/asFW3DataMonitor1General.PNG "Data Monitor 1 Attributes")
+![Data Monitor 1 Attributes](/images/fwmon/asFW3DataMonitor1General.PNG "Data Monitor 1 Attributes")
 
 *Number of Buckets* and *# of Distinct Events* should be considered according to your actual firewall event flow. 
 
@@ -51,7 +51,7 @@ Onto the next one. I find it convenient in addition to monitoring top drops by t
 
 Lets create another data monitor *Checkpoint Firewall - Top Drop Events by Source to Destination* on the same Top Value Counts (Bucketized). This data monitor will reuse our *CheckPoint Firewall - Drop Events* filter. The only difference in the settings compared to the previous data monitor is that our **Aggregate Field** will be *Attacker Address* and *Target Address*. 
 
-![Data Monitor 2 Attributes](/images/asFW3DataMonitor2General.PNG "Data Monitor 2 Attributes")
+![Data Monitor 2 Attributes](/images/fwmon/asFW3DataMonitor2General.PNG "Data Monitor 2 Attributes")
 
 To finalize our task enable data monitor and again add it to the general dashboard. 
 
@@ -61,6 +61,6 @@ What's left is properly arranging the layout of the general dashboard and its in
 
 Mine looks like this:
 
-[![](/images/asFWDashboardGeneral.PNG)](/images/asFWDashboardGeneral.PNG)
+[![](/images/fwmon/asFWDashboardGeneral.PNG)](/images/fwmon/asFWDashboardGeneral.PNG)
 
 

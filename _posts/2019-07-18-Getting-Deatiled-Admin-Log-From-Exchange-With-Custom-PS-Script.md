@@ -26,13 +26,13 @@ Now as you may know Exchange has several logs that may be valuable, but I was pa
 
 Before we proceed further let's see how the standard ArcSight PowerShell SmartConnector works with the Exchange audit logs. It uses 2 PowerShell scrips, one periodically extracts mailboxes and another extracts audit logs and processes them as admin and mailbox audit logs. This particular connector is notoriously badly written. It stops processing logs for no visible reason. It does not understand some encodings, so in case your users use Cyrillic characters, you are out of luck. It does not extract the full info of the administrative actions. Looking at the standard event entry ESM shows you something like this:
 
-![Standard cmdlet Details](/images/exchStandardDetails.PNG "Standard cmdlet Details")
+![Standard cmdlet Details](/images/exchmon/exchStandardDetails.PNG "Standard cmdlet Details")
 
 Obviously, the log that shows that someone did something at sometime, without exact details, is sort of useless. This happens because the standard output of the `Search-AdminAuditLog` **cmdlet** does not reveal by default the full command that was run for the **cmdlet**. So the ESM event presents **CmdletParameters** and **ModifiedProperties** as the truncated output.
 
 For example running `Search-AdminAuditLog -StartDate MM/dd/yyyy -EndDate MM/dd/yyyy -UserIds [admin username]` in PowerShell shows you the following output:
 
-![Standard cmdlet PowerShell Output](/images/exchStandardDetailsPS.PNG "Standard cmdlet PowerShell Output")
+![Standard cmdlet PowerShell Output](/images/exchmon/exchStandardDetailsPS.PNG "Standard cmdlet PowerShell Output")
 
 You can see where the ArcSight PowerShell Connector problems start from.
 
@@ -289,11 +289,11 @@ To test our new command, login to the ArcSight ESM Console, navigate to the _Con
 
 It should present you with the screen to input the parameters, that looks something like this:
 
-![Action Connector Parameters Window](/images/exchActionConnectorParameters.PNG "Action Connector Parameters Window")
+![Action Connector Parameters Window](/images/exchmon/exchActionConnectorParameters.PNG "Action Connector Parameters Window")
 
 Fill in your parameters and run the script. If everything works the output should look like the following:
 
-![Action Connector Test Output](/images/exchActionConnectorTestOutput.PNG "Action Connector Test Output")
+![Action Connector Test Output](/images/exchmon/exchActionConnectorTestOutput.PNG "Action Connector Test Output")
 
 After testing that script is running fine from the ESM console, time is right to write a parser of the output. The parser should be placed in the `$ARCSIGHT_HOME\current\user\agent\fcp\additionalregexparsing\ngflexcounteract` folder under the name `regex.N.sdkrfilereader.properties`, where N stands for the number that is sequential to other parsers you may have. So if you alread have, say, _regex.**0**.sdkrfilereader.properties_, then your new parser should become _regex.**1**.sdkrfilereader.properties_
 
@@ -366,7 +366,7 @@ If everything works and script extracts the audit log and parses the data, we ar
 
 Let's create standard rule *Exchange Events - Admin Actions*. Next we define several variables that we shall pass to the action connector as parameters:
 
-![Admin Action Rule Variable](/images/exchRule1Variables.PNG "Admin Action Rule Variable")
+![Admin Action Rule Variable](/images/exchmon/exchRule1Variables.PNG "Admin Action Rule Variable")
 
 Define them as follows:
 
@@ -410,21 +410,21 @@ Define them as follows:
 
 Next we add this variables into the Aggregation, otherwise we will not be able to pass them as parameters to the rule action. 
 
-![Admin Action Rule Aggregation](/images/exchRule1Aggregation.PNG "Admin Action Rule Aggregation")
+![Admin Action Rule Aggregation](/images/exchmon/exchRule1Aggregation.PNG "Admin Action Rule Aggregation")
 
 The conditions for the rule are defined as events from your ArcSight Exchange PowerShell connector, not of correlation type and falling under the Admin Audit Log category of the events. 
 
-![Admin Action Rule Conditions](/images/exchRule1Conditions.PNG "Admin Action Rule Conditions")
+![Admin Action Rule Conditions](/images/exchmon/exchRule1Conditions.PNG "Admin Action Rule Conditions")
 
 > **Note:** A piece of advice. Create this conditions as the separate filter and observe for a day or two what sort of events it catches. Restrict it further to eliminate automated or regular maintenance works.
 
 Finally we add action be done *On Every Event* to execute connector command. Select the Action Connector you have installed and configured, select the PowerShell script and supply the parameters with the variable names that you have created in the rule with the **$** in front of every variable.
 
-![Admin Action Rule Variables](/images/exchRule1ActionsVariables.PNG "Admin Action Rule Variables")
+![Admin Action Rule Variables](/images/exchmon/exchRule1ActionsVariables.PNG "Admin Action Rule Variables")
 
 It should look close to something like this
 
-![Admin Action Rule Actions](/images/exchRule1Actions.PNG "Admin Action Rule Actions")
+![Admin Action Rule Actions](/images/exchmon/exchRule1Actions.PNG "Admin Action Rule Actions")
 
 Finally save the rule, deploy to the real-time processing and run some tests to see if it works. 
 

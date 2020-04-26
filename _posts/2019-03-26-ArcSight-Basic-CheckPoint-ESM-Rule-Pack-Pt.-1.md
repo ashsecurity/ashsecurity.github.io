@@ -40,15 +40,15 @@ Let us change strategy for this exercise and define filter conditions directly i
 
 Create a query **Firewall Events - All Checkpoint Events**, that queries events for the dynamic period from current time to the past 12 hours. 
 
-![Query All Events General](/images/asFW1Query1General.PNG "Query All Events General")
+![Query All Events General](/images/fwmon/asFW1Query1General.PNG "Query All Events General")
 
 The query will select _deviceVendor_ and will summarize _Aggregated Event Count_ field. You can group by _deviceVendor_ and order by the sum of _Aggregated Event Count_, but it does not bring any benefit to us. 
 
-![Query All Events Fields](/images/asFW1Query1Fields.PNG "Query All Events Fields")
+![Query All Events Fields](/images/fwmon/asFW1Query1Fields.PNG "Query All Events Fields")
 
 Conditions define that events should be from CheckPoint connector only and should not be internal ArcSight events
 
-![Query All Events Conditions](/images/asFW1Query1Conditions.PNG "Query All Events Conditions")
+![Query All Events Conditions](/images/fwmon/asFW1Query1Conditions.PNG "Query All Events Conditions")
 
 Next we create a new [trend](https://community.softwaregrp.com/t5/ESM-and-ESM-Express-Previous/ESM-Best-Practices-Trends/ta-p/1584002) **Firewall Events - CheckPoint Events Count**. This trend will use the **Firewall Events - All Checkpoint Events** query. Data fields of the query are:
 
@@ -56,29 +56,29 @@ Next we create a new [trend](https://community.softwaregrp.com/t5/ESM-and-ESM-Ex
 * _Device Vendor_
 * _Sum of the Aggregated Event Count_
 
-![Trend All Events Count](/images/asFW1Trend1General.PNG "Trend All Events Count")
+![Trend All Events Count](/images/fwmon/asFW1Trend1General.PNG "Trend All Events Count")
 
 It should run every hour and will use events from current time for the last hour.
 
-![Trend All Events Count Parameter](/images/asFW1Trend1Parameter.PNG "Trend All Events Count Parameter")
+![Trend All Events Count Parameter](/images/fwmon/asFW1Trend1Parameter.PNG "Trend All Events Count Parameter")
 
 After couple of hours passed you can test the trend to check if it works as expected. 
 
 Ok. Now we should create another query **Firewall Events - Checkpoint Events Trend** that would query the **Firewall Events - CheckPoint Events Count** trend for the saved data for the 1 day period and select _TimeStamp_ field as well as summarize the sum of the _Aggregated Event Count_ from the trend. 
 
-![Query Events Trend General](/images/asFW1Query2General.PNG "Query Events Trend General")
+![Query Events Trend General](/images/fwmon/asFW1Query2General.PNG "Query Events Trend General")
 
 Query is grouped and ordered  by the _TimeStamp_ field. Notice that I leave _deviceVendor_ field out of the query fields, because it is no use for us at this moment. 
 
-![Query Events Trend Fields](/images/asFW1Query2Fields.PNG "Query Events Trend Fields")
+![Query Events Trend Fields](/images/fwmon/asFW1Query2Fields.PNG "Query Events Trend Fields")
 
 Now we need to create the **Firewall Events - CheckPoint Events Trend** query viewer that will work based on the **Firewall Events - Checkpoint Events Trend** query and actually will serve as the first piece of the dashboard. It will query data for the last 13 hours from the current moment. If you would like to see larger period, just increase the number of hours to whatever you would like.
 
-![Query View Events Trend General](/images/asFW1QueryViewer1General.PNG "Query View Events Trend General")
+![Query View Events Trend General](/images/fwmon/asFW1QueryViewer1General.PNG "Query View Events Trend General")
 
 It will use all the fields from the query. 
 
-![Query View Events Trend Fields](/images/asFW1QueryViewer1Fields.PNG "Query View Events Trend Fields")
+![Query View Events Trend Fields](/images/fwmon/asFW1QueryViewer1Fields.PNG "Query View Events Trend Fields")
 
 Finally add the **Firewall Events - CheckPoint Events Trend** query viewer to the dashboard as **Bar Chart** with _Time Stamp_ used for the **X Axis** and other field for the **Y Axis**. 
 
