@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Outlook macro to automate classification labels in mail subject"
-description: "Classification tags in mail subjects with macro"
-headline: "Automating classification tags with macros"
+description: "Classification labels in mail subjects with macro"
+headline: "Automating classification labels with macros"
 categories: 
 - Operations
 - Windows
@@ -225,7 +225,7 @@ And that is it. Hopefully this one will be helpful for your needs.
 
 #### Bonus
 
-Once making use of this macro and new button as a habit instead of simply making new email, add more subject tags. You will be able to configure [Search Folders](https://support.office.com/en-us/article/use-search-folders-to-find-messages-or-other-outlook-items-c1807038-01e4-475e-8869-0ccab0a56dc5) by this tags.
+Once making use of this macro and new button as a habit instead of simply making new email, add more subject labels. You will be able to configure [Search Folders](https://support.office.com/en-us/article/use-search-folders-to-find-messages-or-other-outlook-items-c1807038-01e4-475e-8869-0ccab0a56dc5) by this labels.
 
 ###### Mentions
 <small>Photo by Émile Perron on Unsplash</small>
