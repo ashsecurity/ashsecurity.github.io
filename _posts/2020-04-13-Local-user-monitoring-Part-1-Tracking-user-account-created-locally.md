@@ -252,9 +252,9 @@ Next we should create Matching Event that matches all (_AND_ operator) of the fo
 
 <center>
 <table>
-		<th>Right Field</th>
-		<th>Operator</th>
 		<th>Left Field</th>
+		<th>Operator</th>
+		<th>Right Field</th>
 	<tr>
 		<td>creation_attempt.Target User Name</td>
 		<td>=</td>
