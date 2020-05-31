@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -271,5 +271,6 @@ Here is the overall graph view of all the components developed in these three pa
 
 [![](/images/vpnmon/VPN3ContentGraph.PNG)](/images/vpnmon/VPN3ContentGraph.PNG)
 
-
+###### Mentions
+<small>Photo by Gabriel Crismariu on Unsplash</small>
 

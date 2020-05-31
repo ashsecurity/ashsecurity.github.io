@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -90,3 +90,5 @@ By now I think you have got the logic behind building the Hourly Events trend da
 
 That should be enough for the first part of the series. 
 
+###### Mentions
+<small>Photo by Gabriel Crismariu on Unsplash</small>

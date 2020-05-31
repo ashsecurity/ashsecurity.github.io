@@ -12,7 +12,7 @@ categories:
 tags: "SIEM ArcSight WEF Monitoring"
 comments: true
 featured: false
-imagefeature: calculation.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -225,4 +225,4 @@ Mine looks like this (clickable to zoom):
 [![](/images/wefmon/asWEFDashboard.png)](/images/wefmon/asWEFDashboard.png)
 
 ###### Mentions
-<small>Feature photo is by the Spanish photograper Jorge Pérez Higuera. </small>
+<small>Photo by Gabriel Crismariu on Unsplash</small>

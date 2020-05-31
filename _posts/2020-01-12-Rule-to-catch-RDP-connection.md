@@ -12,7 +12,7 @@ categories:
 tags: "SIEM ArcSight RDP Monitoring"
 comments: true
 featured: false
-imagefeature: calculation.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -301,4 +301,4 @@ I did not do any dashboard, cause I could not find any useful dashboard that wou
 * [Github repository of the supplementing files](https://github.com/ashsecurity/ArcSight-RDP-Monitoring-Supporting-Files)
 
 ###### Mentions
-<small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>
+<small>Photo by Gabriel Crismariu on Unsplash</small>

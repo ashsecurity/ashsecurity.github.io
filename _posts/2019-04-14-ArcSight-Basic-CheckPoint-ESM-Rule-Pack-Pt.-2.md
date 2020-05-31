@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -101,3 +101,5 @@ Based on **Firewall Events - CheckPoint Daily Admin Events** query we create a s
 
 Finally create a schedule to run the report daily. 
 
+###### Mentions
+<small>Photo by Gabriel Crismariu on Unsplash</small>

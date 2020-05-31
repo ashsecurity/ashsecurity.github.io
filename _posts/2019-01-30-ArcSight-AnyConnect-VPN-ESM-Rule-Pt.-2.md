@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -113,3 +113,6 @@ Finally we need to assign some actions. I do it On Every Event and set the event
 
 
 Thats it. If everything goes well, after deploying the rule to the Real-Time processing it should start generating the event that would collect 3 base events and set the fields as configured above. 
+
+###### Mentions
+<small>Photo by Gabriel Crismariu on Unsplash</small>

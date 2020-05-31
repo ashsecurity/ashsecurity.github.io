@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -63,4 +63,5 @@ Mine looks like this:
 
 [![](/images/fwmon/asFWDashboardGeneral.PNG)](/images/fwmon/asFWDashboardGeneral.PNG)
 
-
+###### Mentions
+<small>Photo by Gabriel Crismariu on Unsplash</small>

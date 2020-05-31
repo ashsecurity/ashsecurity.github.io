@@ -10,7 +10,7 @@ categories:
 tags: "SIEM ArcSight ESM Correlation"
 comments: true
 featured: false
-imagefeature: teaching.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -103,4 +103,4 @@ Next create the **VPN Events - ACS Authentication Enrichment** pre-persistence r
 ![Rule ACS Authentication Action](/images/vpnmon/Rule3Action1.PNG "Rule ACS Authentication Action")
 
 ###### Mentions
-<small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>
+<small>Photo by Gabriel Crismariu on Unsplash</small>

@@ -12,7 +12,7 @@ categories:
 tags: "SIEM ArcSight User_Management Monitoring"
 comments: true
 featured: false
-imagefeature: calculation.jpg
+imagefeature: puzzle.jpg
 published: true 
 language: en
 ---
@@ -429,4 +429,4 @@ In case of the unauthorized changes send an email: email@email.com
 ```
 
 ###### Mentions
-<small>Feature photo is by the Spanish photographer Jorge Pérez Higuera. </small>
+<small>Photo by Gabriel Crismariu on Unsplash</small>
